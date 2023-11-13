@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src=script.js type="module" defer> </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="p-4">
+        <form>
+            <div class="input-group mb-4">
+                <select class="form-select flex-grow-0 w-auto" >    
+                    <option value="GET" selected>GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="PATCH">PATCH</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+
+                <input required class="form-control" type="url" placeholder= "https://example.com">
+                <button class= "btn btn-primary">Send</button>
+            </div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="query-params-tab" data-bs-toggle="tab" data-bs-target="#query-params" type="button" role="tab" aria-controls="query-params" aria-selected="true">Query Params</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="headers-tab" data-bs-toggle="tab" data-bs-target="#headers" type="button" role="tab" aria-controls="headers" aria-selected="false">Headers</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="json-tab" data-bs-toggle="tab" data-bs-target="#json" type="button" role="tab" aria-controls="json" aria-selected="false">JSON</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
+</html>
