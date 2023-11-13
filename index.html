@@ -32,7 +32,31 @@
                     <button class="nav-link" id="json-tab" data-bs-toggle="tab" data-bs-target="#json" type="button" role="tab" aria-controls="json" aria-selected="false">JSON</button>
                 </li>
             </ul>
+            <div class="tab-content p-3 border-top-0 border">
+                <div class="active fade tab-pane show" id="query-params" role="tab-panel" aria-labeledby="query-params-tab">
+                    <div data-query-params>
+                        
+                    </div>
+                    <button data-add-query-params class="mt-2 btn btn-outline-success" type="button">Add</button>
+                </div>
+                <div class="fade tab-pane" id="headers" role="tab-panel" aria-labeledby="headers-tab">
+                    <div data-headers>
+                        
+                    </div>
+                    <button data-add-header class="mt-2 btn btn-outline-success" type="button">Add</button>
+                </div>
+                <div class="fade tab-pane" id="json" role="tab-panel" aria-labeledby="json-tab">
+                    <div data-json-request-data class="overflow-auto" style="max-height: 200px;"></div>
+                </div>
+            </div>
         </form>
     </div>
+<template data-key-value-template >
+    <div class="input-group my-2" data-key-value-pair>
+        <input type="text" data-key class="form-control" placeholder="Key"/>
+        <input type="text" data-value class="form-control" placeholder="Value"/>
+        <button type="button" data-remove-btn class="btn btn-outline-danger">Remove</button>
+    </div>
+</template>
 </body>
 </html>
