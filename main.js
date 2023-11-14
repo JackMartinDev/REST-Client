@@ -86,7 +86,7 @@ function updateEndTime(response) {
 }
 
 axios.interceptors.response.use(updateEndTime, e => {
-    Promise.reject(updateEndTime(e.response))
+    return Promise.reject(updateEndTime(e.response))
 })
 
 
