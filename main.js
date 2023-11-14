@@ -2,12 +2,15 @@ import axios from "axios"
 import "bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import prettyBytes from "pretty-bytes"
+//import setupEditors from "./setupEditor"
 
 const queryParamsContainer = document.querySelector("[data-query-params]")
 const requestHeadersContainer = document.querySelector("[data-request-headers]")
 const responseHeadersContainer = document.querySelector("[data-response-headers]")
 const keyValueTemplate = document.querySelector("[data-key-value-template]")
 const form = document.querySelector("[data-form]")
+
+//const { requestEditor, updateResponseEditor} = setupEditors();
 
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
@@ -27,7 +30,7 @@ form.addEventListener("submit", (e)=>{
 })
 
 function updateResponseEditor(response) {
-   document.querySelector("[data-json-response-body]").textContent = JSON.stringify(response, null, 2);
+   document.querySelector("[data-json-response-body]").textContent = JSON.stringify(response, null, 2); 
 }
 
 function updateResponseHeaders(headers) {
