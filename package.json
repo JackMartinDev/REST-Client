@@ -19,6 +19,7 @@
     "pretty-bytes": "^6.1.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "snowpack": "^3.8.8"
   }
 }
