@@ -2,7 +2,7 @@ import axios from "axios"
 import "bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import prettyBytes from "pretty-bytes"
-//import setupEditors from "./setupEditor"
+import setupEditors from "./setupEditor"
 
 const queryParamsContainer = document.querySelector("[data-query-params]")
 const requestHeadersContainer = document.querySelector("[data-request-headers]")
@@ -10,16 +10,26 @@ const responseHeadersContainer = document.querySelector("[data-response-headers]
 const keyValueTemplate = document.querySelector("[data-key-value-template]")
 const form = document.querySelector("[data-form]")
 
-//const { requestEditor, updateResponseEditor} = setupEditors();
+const { requestEditor, updateResponseEditor} = setupEditors();
 
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
+    
+    let data;
+
+    try {
+        data = JSON.parse(requestEditor.state.doc.toString() || null)
+    } catch (error) {
+        alert("JSON data is malformed!")
+        return
+    }
 
     axios({
         url: document.querySelector("[data-url]").value,
         method: document.querySelector("[data-method]").value,
         params: keyValuePairsToObjects(queryParamsContainer),
         headers: keyValuePairsToObjects(requestHeadersContainer),
+        data,
     }).catch(e => e).then(res => {
             document.querySelector("[data-response-section]").classList.remove("d-none")
             updateResponseDetails(res);
@@ -29,9 +39,9 @@ form.addEventListener("submit", (e)=>{
         })
 })
 
-function updateResponseEditor(response) {
-   document.querySelector("[data-json-response-body]").textContent = JSON.stringify(response, null, 2); 
-}
+//function updateResponseEditor(response) {
+//   document.querySelector("[data-json-response-body]").textContent = JSON.stringify(response, null, 2); 
+//}
 
 function updateResponseHeaders(headers) {
    responseHeadersContainer.innerHTML = "" 
