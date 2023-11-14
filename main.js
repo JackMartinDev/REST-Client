@@ -14,7 +14,7 @@ const { requestEditor, updateResponseEditor} = setupEditors();
 
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
-    
+
     let data;
 
     try {
@@ -39,12 +39,8 @@ form.addEventListener("submit", (e)=>{
         })
 })
 
-//function updateResponseEditor(response) {
-//   document.querySelector("[data-json-response-body]").textContent = JSON.stringify(response, null, 2); 
-//}
-
 function updateResponseHeaders(headers) {
-   responseHeadersContainer.innerHTML = "" 
+    responseHeadersContainer.innerHTML = "" 
     Object.entries(headers).forEach(([key, value]) => {
         const keyElement = document.createElement("div");
         keyElement.textContent = key;
@@ -52,7 +48,7 @@ function updateResponseHeaders(headers) {
         const valueElement = document.createElement("div");
         valueElement.textContent = value;
         responseHeadersContainer.append(valueElement);
-    
+
     })
 }
 
